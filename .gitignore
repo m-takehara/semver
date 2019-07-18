@@ -1,2 +1,5 @@
+# IDE Settings
+.idea/workspace.xml
+
 # Dependencies
 node_modules/

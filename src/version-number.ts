@@ -9,7 +9,9 @@ export class VersionNumber {
         return `${this.major}.${this.minor}.${this.patch}`;
     }
 
-    equals(comparison: VersionNumber): boolean {
-        return undefined;
+    public equals(comparison: VersionNumber): boolean {
+        return this.major === comparison.major
+            && this.minor === comparison.minor
+            && this.patch === comparison.patch;
     }
 }

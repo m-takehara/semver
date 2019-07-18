@@ -5,7 +5,7 @@ export class VersionNumber {
         private patch: number) {
     }
 
-    stringify(): string {
-        return '';
+    public stringify(): string {
+        return `${this.major}.${this.minor}.${this.patch}`;
     }
 }

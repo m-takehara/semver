@@ -9,4 +9,14 @@ describe('VersionNumber クラスのテスト', () => {
             });
         });
     });
+
+    describe('バージョン番号クラスは等価性比較ができる', () => {
+        describe('全フィールドの値が比較対象と同一の場合は true を返す', () => {
+            test('コンストラクタに (0, 0, 0) を与えたオブジェクトを2つ作り比較すると true が得られる', () => {
+                const numberA = new VersionNumber(0, 0, 0);
+                const numberB = new VersionNumber(0, 0, 0);
+                expect(numberA.equals(numberB)).toBeTruthy();
+            });
+        });
+    });
 });

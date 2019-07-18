@@ -8,4 +8,8 @@ export class VersionNumber {
     public stringify(): string {
         return `${this.major}.${this.minor}.${this.patch}`;
     }
+
+    equals(comparison: VersionNumber): boolean {
+        return undefined;
+    }
 }

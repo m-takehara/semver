@@ -14,4 +14,8 @@ export class VersionNumber {
             && this.minor === comparison.minor
             && this.patch === comparison.patch;
     }
+
+    public compareTo(comparison: VersionNumber): number {
+        return undefined;
+    }
 }

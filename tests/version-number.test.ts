@@ -27,4 +27,14 @@ describe('VersionNumber クラスのテスト', () => {
             });
         });
     });
+
+    describe('バージョン番号クラスは大小比較ができる', () => {
+        describe('比較対象と等価であれば 0 を返す', () => {
+            test('コンストラクタに (0, 0, 0) を与えたオブジェクトを2つ作り比較すると 0 を得られる', () => {
+                const numberA = new VersionNumber(0, 0, 0);
+                const numberB = new VersionNumber(0, 0, 0);
+                expect(numberA.compareTo(numberB)).toBe(0)
+            })
+        });
+    });
 });

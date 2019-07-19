@@ -16,6 +16,6 @@ export class VersionNumber {
     }
 
     public compareTo(comparison: VersionNumber): number {
-        return undefined;
+        return 0;
     }
 }

@@ -34,14 +34,21 @@ describe('VersionNumber クラスのテスト', () => {
                 const numberA = new VersionNumber(0, 0, 0);
                 const numberB = new VersionNumber(0, 0, 0);
                 expect(numberA.compareTo(numberB)).toBe(0)
-            })
+            });
         });
         describe('比較対象より小さければ -1 を返す', () => {
             test('major = 0 のオブジェクトに対し比較対象は major = 1 のとき -1 を得られる', () => {
                 const numberA = new VersionNumber(0, 0, 0);
                 const numberB = new VersionNumber(1, 0, 0);
                 expect(numberA.compareTo(numberB)).toBe(-1);
-            })
-        })
+            });
+        });
+        describe('比較対象より大きければ 1 を返す', () => {
+            test('major = 1 のオブジェクトに対し比較対象は major = 0 のとき 1 を得られる', () => {
+                const numberA = new VersionNumber(1, 0, 0);
+                const numberB = new VersionNumber(0, 0, 0);
+                expect(numberA.compareTo(numberB)).toBe(1);
+            });
+        });
     });
 });

@@ -1,8 +1,15 @@
 export class VersionNumber {
+
     constructor(
         private major: number,
         private minor: number,
         private patch: number) {
+
+        if (!(VersionNumber.isInteger(major)
+            && VersionNumber.isInteger(minor)
+            && VersionNumber.isInteger(patch))) {
+            throw new TypeError('値は 0 以上の整数のみ使用可能です');
+        }
     }
 
     public stringify(): string {
@@ -26,6 +33,14 @@ export class VersionNumber {
             return this.patch < comparison.patch ? -1 : 1;
         }
         return 0;
+    }
+
+    private static isInteger(num: number): boolean {
+        const isNegative = num < 0;
+        const isNull = num === null;
+        const isFloat = num % 1 !== 0;
+
+        return !(isNegative || isNull || isFloat);
     }
 
 }

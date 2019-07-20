@@ -51,4 +51,32 @@ describe('VersionNumber クラスのテスト', () => {
             });
         });
     });
+
+    describe('バージョン番号クラスの各フィールドはゼロ、または正の整数である', () => {
+        describe('フィールドに0を入れられる', () => {
+            test('全フィールドに 0 を入れても例外は発生しない', () => {
+                expect(() => new VersionNumber(0, 0, 0)).not.toThrow();
+            });
+        });
+
+        describe('フィールドに0以上の整数以外を入れると例外が発生する', () => {
+            describe('負数のとき', () => {
+                test('major に -1 を与えると例外が発生する', () => {
+                    expect(() => new VersionNumber(-1, 0, 0)).toThrow();
+                });
+            });
+
+            describe('浮動小数点数のとき', () => {
+                test('major に 0.1 を与えると例外が発生する', () => {
+                    expect(() => new VersionNumber(0.1, 0, 0)).toThrow();
+                });
+            });
+
+            describe('null のとき', () => {
+                test('major に null を与えると例外が発生する', () => {
+                    expect(() => new VersionNumber(null, 0, 0)).toThrow();
+                });
+            });
+        });
+    });
 });
